@@ -2,7 +2,7 @@
 
 void ctrlc(int num)
 {
-	(void) sig_num;
+	(void) num;
 	write(1, "\n$ ", 3);
 	fflush(stdout);
 }
