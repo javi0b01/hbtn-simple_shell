@@ -1,7 +1,6 @@
 #include "main.h"
 /**
- * main - first version of a super simple shell that can
- * run commands with their full path, without any argument.
+ * main - ...
  *
  * Return: Always 0.
  */
@@ -16,7 +15,11 @@ int main()
 	int i = NULL;
 	pid_t process = NULL;
 	int status = NULL;
-	char **test;
+	char **dir = NULL;
+	char *command = NULL;
+	char *s1 = NULL;
+	char *s2 = NULL;
+	int retfs = NULL;
 
 	while (1)
 	{
@@ -32,8 +35,6 @@ int main()
 			free(exe);
 			return (1);
 		}
-		_getpath();
-		printf("%s\n", _getpath());
 		printf("#cisfun$ ");
 		if(isatty(0))
 		{
@@ -54,13 +55,22 @@ int main()
 				free(exe);
 				break;
 			}
+			dir = _fgetpath();
+			i = 0;
+			while(dir[i] != NULL )
+			{
+				i++;
+			}
 			const char split[3] = " \n\t";
 			run = strtok(line, split);
+			//command = run;
+			//command = _fwhich(dir, run);
+			
 			i = 0;
-			while(run != NULL)
+			while(command != NULL)
 			{
-				exe[i] = run;
-				run = strtok(NULL, split);
+				exe[i] = command;
+				command = strtok(NULL, split);
 				i++;
 			}
 			exe[i] = 0;
@@ -83,15 +93,23 @@ int main()
 			}
 			free(line);
 			free(exe);
-			break;
+				break;
+			}
+		dir = _fgetpath();
+		i = 0;
+		while(dir[i] != NULL )
+		{
+			i++;
 		}
 		const char split[3] = " \n\t";
 		run = strtok(line, split);
+		//command = run;
+		command = _fwhich(dir, run);
 		i = 0;
-		while(run != NULL)
+		while(command != NULL)
 		{
-			exe[i] = run;
-			run = strtok(NULL, split);
+			exe[i] = command;
+			command = strtok(NULL, split);
 			i++;
 		}
 		exe[i] = 0;
