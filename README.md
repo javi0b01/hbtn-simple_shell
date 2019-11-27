@@ -1,5 +1,3 @@
 Simple Shell
 =======
-# simple_shell
-_Readme_
->>>>>>> 928f778d2c810098232b81d31f0a51b74dc4fc45
+# Proyect by: Javier Patarroyo, Carlos Hernando Lemus Martinez, Camilo Araque Caro.
