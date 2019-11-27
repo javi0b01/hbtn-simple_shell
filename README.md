@@ -1,5 +1,4 @@
-HEAD
-simple_shell
+Simple Shell
 =======
 # simple_shell
 _Readme_
