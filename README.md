@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 simple_shell
 =======
 # simple_shell
