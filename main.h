@@ -4,5 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-char **_getpath(void);
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+char **_fgetpath(void);
+char *_fwhich(char **s1, char *s2);
+int main(int ac, char **av);
 #endif //MAIN_H
