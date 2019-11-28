@@ -1,5 +1,7 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
+/* Libraries */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,12 +13,13 @@
 #include <limits.h>
 #include <signal.h>
 #include <errno.h>
-#include <signal.h>
 #include <dirent.h>
+
+/* Prototypes */
 
 int _strcmp(char *s1, char *s2);
 int exit_func(char *str);
 char **_fgetpath(void);
 char *_fwhich(char **s1, char *s2);
 void ctrlc(int num);
-#endif //MAIN_H
+#endif /* _MAIN_H_ */
