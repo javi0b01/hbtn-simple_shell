@@ -9,5 +9,5 @@
 #include <sys/stat.h>
 char **_fgetpath(void);
 char *_fwhich(char **s1, char *s2);
-int main(int ac, char **av);
+//void ctrlc(int num);
 #endif //MAIN_H
