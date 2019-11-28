@@ -38,7 +38,9 @@ int main(void)
 		}
 		write(1, "#cisfun$ ", 9);
 		if (isatty(0))
+
 		{
+			write(STDIN_FILENO, "#cisfun$ ",9);
 			ret = getline(&line, &len, stdin);
 			if (ret == 1)
 			{
@@ -80,6 +82,7 @@ int main(void)
 				command = strtok(NULL, split);
 				i++;
 			}
+			exit_func(line);
 			exe[i] = 0;
 			process = fork();
 			if (process < 0)
