@@ -23,14 +23,14 @@ int main(void)
 		exit_func(buffer);
 		if (fork() == 0)
 		{
-		var3 = execve(token, argv, NULL);
+			var3 = execve(token, argv, NULL);
 			if (var3 == -1)
 			{
 				free(buffer);
 				exit(-1);
 			}
 		}
-	     	else
+		else
 		{
 			wait(&var2);
 		}
