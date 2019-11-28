@@ -1,8 +1,10 @@
 #include "main.h"
 /**
-*
-*/
-void ctrlc(int num)
+ * _fctrlc - function that ...
+ * @num: parameter that ...
+ * Return: the ...
+ */
+void _fctrlc(int num)
 {
 	(void) num;
 	write(1, "\n#cisfun$ ", 11);
