@@ -36,9 +36,9 @@ int main()
 			free(exe);
 			return (1);
 		}
-		write(1, "#cisfun$ ",9);
-		if(isatty(0))
+		if(isatty(STDIN_FILENO))
 		{
+			write(STDIN_FILENO, "#cisfun$ ",9);
 			ret = getline(&line, &len, stdin);
 			if (ret == 1)
 			{
