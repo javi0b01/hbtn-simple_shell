@@ -21,6 +21,7 @@ int main()
 	char *s2 = NULL;
 	int retfs = NULL;
 
+	//signal(SIGINT, ctrlc);
 	while (1)
 	{
 		line = malloc(sizeof(char) * len);
@@ -35,7 +36,7 @@ int main()
 			free(exe);
 			return (1);
 		}
-		printf("#cisfun$ ");
+		write(1, "#cisfun$ ",9);
 		if(isatty(0))
 		{
 			ret = getline(&line, &len, stdin);
@@ -63,9 +64,14 @@ int main()
 			}
 			const char split[3] = " \n\t";
 			run = strtok(line, split);
-			//command = run;
-			//command = _fwhich(dir, run);
-			
+			if (access(run, F_OK) == 0)
+			{
+				command = run;
+			}
+			else
+			{
+				command = _fwhich(dir, run);
+			}
 			i = 0;
 			while(command != NULL)
 			{
@@ -103,8 +109,14 @@ int main()
 		}
 		const char split[3] = " \n\t";
 		run = strtok(line, split);
-		//command = run;
-		command = _fwhich(dir, run);
+		if (access(run, F_OK) == 0)
+		{
+			command = run;
+		}
+		else
+		{
+			command = _fwhich(dir, run);
+		}
 		i = 0;
 		while(command != NULL)
 		{
