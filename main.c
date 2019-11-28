@@ -21,7 +21,6 @@ int main()
 	char *s2 = NULL;
 	int retfs = NULL;
 
-	//signal(SIGINT, ctrlc);
 	while (1)
 	{
 		line = malloc(sizeof(char) * len);
@@ -36,6 +35,7 @@ int main()
 			free(exe);
 			return (1);
 		}
+		signal(SIGINT, ctrlc);
 		write(1, "#cisfun$ ",9);
 		if(isatty(0))
 		{
@@ -79,6 +79,7 @@ int main()
 				command = strtok(NULL, split);
 				i++;
 			}
+			exit_func(line);
 			exe[i] = 0;
 			process = fork();
 			if (process < 0)
