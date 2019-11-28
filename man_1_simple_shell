@@ -1,0 +1,69 @@
+.\" Manpage for simple_shell.
+.\" Contact @1270holberton @chmlsud @AraqueGD to correct errors or typos.
+.TH HSH 10 "27 November 2019" "1.0" "simple_shell man page"
+.SH NAME
+-Simple Shell
+[command] [options]
+.SH DESCRIPTION
+.B hsh
+(Simple Shell) is an end of semester project for students at Holberton School
+where we expore, understand and build a working functional simple shell program.
+The user may quit the program by typing "exit", "Ctrl + D", or "Ctrl + C" on the command line.
+When the program quits or a command has been executed,
+.B simple shell
+returns with a new prompt: "#CisFun Simple Shell : Success! "
+
+.B Example
+.IP
+
+$./hsh
+
+#Cisfun$
+
+#Cisfun$/bin/pwd
+
+/home/vagrant/simple_shell
+
+#Cisfun$
+
+.SH RESERVED WORDS
+.B exit:
+quits the program, exits the shell.
+
+.B env:
+prints the environment variables
+
+.SH HISTORY
+The
+.B history
+built-in displays the history list, one command per line, preceded with line numbers, starting with 0. On exit the entire history is written to a file named
+.I simple_shell_history
+in the
+.I $HOME
+directory.
+.SH SHELL BUILTIN COMMANDS
+The commands
+.B exit
+and
+.B env
+are handled automatically by
+.B simple shell
+
+.SH FILES
+.I _strcmp.c
+- Contains the function compare String made by us.
+
+.I ctrlc.c
+- Contains the function exit the Shell with the Ctrl+c command.
+
+.I exit.c
+- Contains the function exit the Shell with Word "exit".
+
+.I shell.c
+- Contains all the previous functions for use the Shell.
+
+.SH BUGS
+No known bugs.
+Reported Bugs https://github.com/AraqueGD
+.SH AUTHOR
+Javier Patarroyo, Carlos Hernando Lemus Martinez, Camilo Araque Caro
