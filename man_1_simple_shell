@@ -50,16 +50,19 @@ are handled automatically by
 .B simple shell
 
 .SH FILES
-.I _strcmp.c
-- Contains the function compare String made by us.
+.I _fgetpath.c
+- Contains the function about print and find the PATH.
 
-.I ctrlc.c
+.I _fwhich.c
+- Contains the function open de Directory and verify commands typed by the user.
+
+.I _fctrlc.c
 - Contains the function exit the Shell with the Ctrl+c command.
 
 .I exit.c
 - Contains the function exit the Shell with Word "exit".
 
-.I shell.c
+.I main.c
 - Contains all the previous functions for use the Shell.
 
 .SH BUGS
