@@ -1,25 +1,18 @@
 #include "main.h"
 /**
  * main - ...
- *
+ * @argc: is ...
+ * @argv: is ...
  * Return: Always 0.
  */
-int main(void)
+int main(int argc, char **argv)
 {
-	size_t len = NULL;
-	char *line = NULL;
-	char **exe = NULL;
-	int ret = NULL;
 	const char split = NULL;
-	char *run = NULL;
-	int i = NULL;
 	pid_t process = NULL;
-	int status = NULL;
-	char **dir = NULL;
-	char *command = NULL;
-	char *s1 = NULL;
-	char *s2 = NULL;
-	int retfs = NULL;
+	size_t len = NULL;
+	char **exe = NULL, **dir = NULL;
+	char *s1 = NULL, *s2 = NULL, *run = NULL, *line = NULL, *command = NULL;
+	int status = NULL, ret = NULL, i = NULL;
 
 	signal(SIGINT, _fctrlc);
 	while (1)
@@ -30,87 +23,41 @@ int main(void)
 			free(line);
 			return (1);
 		}
+		dir = malloc(sizeof(char) * len);
+		if (dir == NULL)
+		{
+			free(dir);
+			return (1);
+		}
 		exe = malloc(sizeof(char) * len);
 		if (line == NULL)
 		{
 			free(exe);
 			return (1);
 		}
-		write(1, "#cisfun$ ", 9);
-		if (isatty(0))
+		if (isatty(STDIN_FILENO))
 		{
-			ret = getline(&line, &len, stdin);
-			if (ret == 1)
-			{
-				free(line);
-				free(exe);
-				continue;
-			}
+			write(1, "#cisfun$ ", 9);
 		}
-		else
+		ret = getline(&line, &len, stdin);
+		if (ret == -1)
 		{
-			ret = getline(&line, &len, stdin);
-			if (ret == 1)
-			{
-				free(line);
-				free(exe);
-				break;
-			}
-			dir = _fgetpath();
-			i = 0;
-			while (dir[i] != NULL)
-			{
-				i++;
-			}
-			const char split[3] = " \n\t";
-
-			run = strtok(line, split);
-			if (access(run, F_OK) == 0)
-			{
-				command = run;
-			}
-			else
-			{
-				command = _fwhich(dir, run);
-			}
-			i = 0;
-			while (command != NULL)
-			{
-				exe[i] = command;
-				command = strtok(NULL, split);
-				i++;
-			}
-			exe[i] = 0;
-			process = fork();
-			if (process < 0)
-			{
-				perror("Error: PROCESS !!!\n");
-				return (1);
-			}
-			if (process == 0)
-			{
-				if (execve(exe[0], exe, NULL) == -1)
-				{
-					perror("./shell");
-				}
-			}
-			if (process > 0)
-			{
-				wait(&status);
-			}
+			exit(98);
+		}
+		if (ret == 1)
+		{
 			free(line);
 			free(exe);
-				break;
-			}
-		dir = _fgetpath();
-		i = 0;
-		while (dir[i] != NULL)
-		{
-			i++;
+			continue;
 		}
+		dir = _fgetpath();
 		const char split[3] = " \n\t";
 
 		run = strtok(line, split);
+		if (strcmp(run, "exit") == 0)
+		{
+			exit(-1);
+		}
 		if (access(run, F_OK) == 0)
 		{
 			command = run;
@@ -137,13 +84,15 @@ int main(void)
 		{
 			if (execve(exe[0], exe, NULL) == -1)
 			{
-				perror("./shell");
+				perror(argv[0]);
+				exit(98);
 			}
 		}
 		if (process > 0)
 		{
 			wait(&status);
 		}
+		free(dir);
 		free(line);
 		free(exe);
 	}
