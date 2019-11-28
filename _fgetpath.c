@@ -12,11 +12,13 @@ char **_fgetpath(void)
 	int i;
 	int j;
 	char **ar;
+	char **tmp;
 
 	i = 0;
 	while (environ[i] != NULL)
 	{
-		check = strtok(environ[i], "=");
+		tmp[i] = strdup(environ[i]);
+		check = strtok(tmp[i], "=");
 		result = strcmp(name, check);
 		if (result  == 0)
 		{

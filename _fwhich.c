@@ -14,7 +14,7 @@ char *_fwhich(char **s1, char *s2)
 	int i;
 
 	i = 0;
-	while (1)
+	while (s1[i] != NULL)
 	{
 		dir = (opendir(s1[i]));
 		if (dir == NULL)
@@ -31,13 +31,13 @@ char *_fwhich(char **s1, char *s2)
 					strcat(s1[i], "/");
 					s = s1[i];
 					strcat(s, s2);
-					return (s);
 					closedir(dir);
+					return (s);
 				}
 			}
 		}
 		i++;
 	}
 	closedir(dir);
-	return ("END\n");
+	return (s2);
 }
