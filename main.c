@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 			return (1);
 		}
 		exe = malloc(sizeof(char) * len);
-		if (line == NULL)
+		if (exe == NULL)
 		{
 			free(exe);
 			return (1);
@@ -47,7 +47,8 @@ int main(int argc, char **argv)
 		if (ret == 1)
 		{
 			free(line);
-			free(exe);
+			free(dir);
+      free(exe);
 			continue;
 		}
 		dir = _fgetpath();
@@ -92,8 +93,8 @@ int main(int argc, char **argv)
 		{
 			wait(&status);
 		}
-		free(dir);
 		free(line);
+		free(dir);
 		free(exe);
 	}
 	return (0);
