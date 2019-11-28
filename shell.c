@@ -1,5 +1,8 @@
 #include "holberton.h"
-
+/**
+ * main - This is the main program of shell
+ * Return: Exit the program return to 0
+ */
 int main(void)
 {
 	char *buffer = NULL, *argv[] = {"", NULL}, *token;
