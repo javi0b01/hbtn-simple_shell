@@ -3,6 +3,6 @@
 void ctrlc(int num)
 {
 	(void) num;
-	write(1, "\n$ ", 3);
+	write(1, "\n#cisfun$ ", 11);
 	fflush(stdout);
 }
