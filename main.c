@@ -4,7 +4,7 @@
  *
  * Return: Always 0.
  */
-int main()
+int main(void)
 {
 	size_t len = NULL;
 	char *line = NULL;
@@ -21,7 +21,7 @@ int main()
 	char *s2 = NULL;
 	int retfs = NULL;
 
-	//signal(SIGINT, ctrlc);
+	signal(SIGINT, _fctrlc);
 	while (1)
 	{
 		line = malloc(sizeof(char) * len);
@@ -36,8 +36,8 @@ int main()
 			free(exe);
 			return (1);
 		}
-		write(1, "#cisfun$ ",9);
-		if(isatty(0))
+		write(1, "#cisfun$ ", 9);
+		if (isatty(0))
 		{
 			ret = getline(&line, &len, stdin);
 			if (ret == 1)
@@ -58,11 +58,12 @@ int main()
 			}
 			dir = _fgetpath();
 			i = 0;
-			while(dir[i] != NULL )
+			while (dir[i] != NULL)
 			{
 				i++;
 			}
 			const char split[3] = " \n\t";
+
 			run = strtok(line, split);
 			if (access(run, F_OK) == 0)
 			{
@@ -73,7 +74,7 @@ int main()
 				command = _fwhich(dir, run);
 			}
 			i = 0;
-			while(command != NULL)
+			while (command != NULL)
 			{
 				exe[i] = command;
 				command = strtok(NULL, split);
@@ -103,11 +104,12 @@ int main()
 			}
 		dir = _fgetpath();
 		i = 0;
-		while(dir[i] != NULL )
+		while (dir[i] != NULL)
 		{
 			i++;
 		}
 		const char split[3] = " \n\t";
+
 		run = strtok(line, split);
 		if (access(run, F_OK) == 0)
 		{
@@ -118,7 +120,7 @@ int main()
 			command = _fwhich(dir, run);
 		}
 		i = 0;
-		while(command != NULL)
+		while (command != NULL)
 		{
 			exe[i] = command;
 			command = strtok(NULL, split);
