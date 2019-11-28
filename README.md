@@ -1,5 +1,3 @@
-Simple Shell
-=======
 This is a proyect final semester for students of Holberton where we explore, understand and build a working functional simple shell program.
 A shell is the user interface to communicate with the operative system service with of called bash scripting
 
