@@ -12,26 +12,30 @@ char **_fgetpath(void)
 	int i;
 	int j;
 	char **ar;
-	char **tmp;
+	char *tmp;
 
+	if (environ == NULL)
+		return (NULL);
 	i = 0;
 	while (environ[i] != NULL)
 	{
-		tmp[i] = strdup(environ[i]);
-		check = strtok(tmp[i], "=");
+		tmp = strdup(environ[i]);
+		check = strtok(tmp, "=");
 		result = strcmp(name, check);
 		if (result  == 0)
 		{
 			check = strtok(NULL, "\0");
-			dir = check;
+			dir = strdup(check);
+
 		}
+		free(tmp);
 		i++;
 	}
 	check = strtok(dir, ":");
 	ar = malloc(sizeof(char *) * 16);
 	if (ar == NULL)
 	{
-		free(ar);
+		free(dir);
 		return (NULL);
 	}
 	j = 0;
