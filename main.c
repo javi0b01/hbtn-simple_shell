@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 		{
 			free(line);
 			free(dir);
-      free(exe);
+			free(exe);
 			continue;
 		}
 		dir = _fgetpath();
