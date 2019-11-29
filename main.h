@@ -11,6 +11,7 @@
 #include <signal.h>
 #include <errno.h>
 #include <dirent.h>
+#include <string.h>
 
 /* Prototypes */
 
@@ -20,5 +21,6 @@ char **_fgetpath(void);
 char *_fwhich(char **s1, char *s2);
 void _fctrlc(int num);
 extern char **environ;
+
 #endif /* _MAIN_H_ */
 
