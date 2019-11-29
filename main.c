@@ -7,74 +7,59 @@
  */
 int main(int argc, char **argv)
 {
-	const char split = NULL;
 	pid_t process = NULL;
 	size_t len = NULL;
 	char **exe = NULL, **dir = NULL;
 	char *s1 = NULL, *s2 = NULL, *run = NULL, *line = NULL, *command = NULL;
 	int status = NULL, ret = NULL, i = NULL;
+	char *split = " \n", *cmd2 = NULL;
+	int count = 0;
 
 	signal(SIGINT, _fctrlc);
 	while (1)
 	{
-		line = malloc(sizeof(char) * len);
-		if (line == NULL)
-		{
-			free(line);
-			return (1);
-		}
-		dir = malloc(sizeof(char) * len);
-		if (dir == NULL)
-		{
-			free(dir);
-			return (1);
-		}
-		exe = malloc(sizeof(char) * len);
-		if (exe == NULL)
-		{
-			free(exe);
-			return (1);
-		}
 		if (isatty(STDIN_FILENO))
-		{
 			write(1, "#cisfun$ ", 9);
-		}
 		ret = getline(&line, &len, stdin);
 		if (ret == -1)
-		{
 			exit(98);
-		}
 		if (ret == 1)
 		{
 			free(line);
-			free(dir);
-			free(exe);
 			continue;
 		}
 		dir = _fgetpath();
-		const char split[3] = " \n\t";
+
+		cmd2 = strdup(line);
+		if (strtok(cmd2, split))
+			count++;
+		else
+			free(cmd2);
+		while(strtok(NULL, split))
+			count++;
+		free(cmd2);
 
 		run = strtok(line, split);
 		if (strcmp(run, "exit") == 0)
 		{
-			exit(-1);
+			free(dir[0]), free(dir), free(line);
+			exit(0);
 		}
 		if (access(run, F_OK) == 0)
-		{
 			command = run;
-		}
 		else
-		{
 			command = _fwhich(dir, run);
-		}
-		i = 0;
-		while (command != NULL)
+
+		exe = malloc (sizeof(char *) * (count + 1));
+		exe[0] = command;
+		i = 1;
+		while (i < count)
 		{
-			exe[i] = command;
-			command = strtok(NULL, split);
+			exe[i] = strtok(NULL, split);
 			i++;
 		}
-		exe[i] = 0;
+		exe[i] = NULL;
+
 		process = fork();
 		if (process < 0)
 		{
@@ -90,10 +75,9 @@ int main(int argc, char **argv)
 			}
 		}
 		if (process > 0)
-		{
 			wait(&status);
-		}
 		free(line);
+		line = NULL;
 		free(dir);
 		free(exe);
 	}
