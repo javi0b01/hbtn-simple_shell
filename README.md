@@ -1,46 +1,60 @@
-This is a proyect final semester for students of Holberton where we explore, understand and build a working functional simple shell program.
-A shell is the user interface to communicate with the operative system service with of called bash scripting
+# 0x16. C - Simple Shell
+Foundations - Low-level programming & Algorithm ― Linux and Unix system programming
 
-Requirements:
+###### :copyright: **[Holberton School](https://www.holbertonschool.com/)**
+by _Julien Barbier_
 
-Compile with GCC
-holberton.h - The header file
-shell.c - It's the main code
-_strcmp.c - Code that compare strings
-ctrlc.c - Code that not exit the program
-exit.c - Exit function
+## Learning Objectives
+* Second teamwork
+* Write a simple UNIX command interpreter
+* Who designed and implemented the original Unix operating system
+* Who wrote the first version of the UNIX shell
+* Who invented the B programming language (the direct predecessor to the C programming language)
+* Who is Ken Thompson
+* How does a shell work
+* What is a pid and a ppid
+* How to manipulate the environment of the current process
+* What is the difference between a function and a system call
+* How to create processes
+* What are the three prototypes of ```main```
+* How does the shell use the ```PATH``` to find the programs
+* How to execute another program with the ```execve``` system call
+* How to suspend the execution of a process until one of its children terminates
+* What is ```EOF``` / “end-of-file”?
 
-Compile:
-gcc -g -Wall -Werror -pedantic *.c -o shell --debug
+## Resources
+* [x shell](https://en.wikipedia.org/wiki/Unix_shell)
+* [Thompson shell](https://en.wikipedia.org/wiki/Thompson_shell)
+* [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
+* [Everything you need to know to start coding your own shell](https://intranet.hbtn.io/concepts/64)
 
-Running:
-./shell
+## Tasks
+* [x] 0. README, man, AUTHORS
+* [x] 1. Betty would be proud
+* [ ] 2. Test suite
+* [ ] 3. Simple shell 0.1
+* [ ] 4. Simple shell 0.1.1
+* [ ] 5. Simple shell 0.2
+* [ ] 6. Simple shell 0.2.1
+* [ ] 7. Simple shell 0.3
+* [ ] 8. Simple shell 0.4
+* [ ] 9. Simple shell 0.4.1
+* [x] 10. Simple shell 0.4.2
+* [ ] 11. Simple shell 1.0
+* [ ] 12. setenv, unsetenv
+* [ ] 13. cd
+* [ ] 14. ; 
+* [ ] 15. && and ||
+* [ ] 16. alias
+* [ ] 17. Variables
+* [ ] 18. Comments
+* [ ] 19. help
+* [ ] 20. history
+* [ ] 21. File as input
+* [x] 22. What happens when you type ls -l in the shell
 
-What do the shell:
+## Developers
+Carlos Hernando Lemus Martínez, Camilo Araque Caro, Javier Andrés Garzón Patarroyo
+- [website](https://tecnoayuda.co/)
 
-This shell only run with the follow simple commands:
-
-Example:
-$ /bin/ls
-List the files
-
-$ /bin/pwd
-Display the path folder
-
-$ exit
-Exit of the program and you can press CTRL + d to exit
-
-$ ./shell: Finish program
-
-Audience
-=======
-This Proyect is intended for engineers and computer science enthusiasts looking to learn basic source code that supports implementation of a shell program.
-
-Environment
-=======
-Simple Shell was built and tested in the Ubuntu 14.04.6 LTS (GNU/Linux 3.13.0-170-generic x86_64)
-
-Respository Contents
-=======
-
-Proyect by: Javier Patarroyo, Carlos Hernando Lemus Martinez, Camilo Araque Caro.
+:man_technologist: :books: :computer: :globe_with_meridians:
