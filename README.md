@@ -1,9 +1,6 @@
 # 0x16. C - Simple Shell
 Foundations - Low-level programming & Algorithm ― Linux and Unix system programming
 
-###### :copyright: **[Holberton School](https://www.holbertonschool.com/)**
-by _Julien Barbier_
-
 ## Learning Objectives
 * Second teamwork
 * Write a simple UNIX command interpreter
@@ -54,7 +51,6 @@ by _Julien Barbier_
 * [x] 22. What happens when you type ls -l in the shell
 
 ## Developers
-Carlos Hernando Lemus Martínez, Camilo Araque Caro, Javier Andrés Garzón Patarroyo
-- [website](https://tecnoayuda.co/)
+Carlos Hernando Lemus Martínez, Camilo Araque Caro, [javi](https://github.com/javi0x00)
 
 :man_technologist: :books: :computer: :globe_with_meridians:
