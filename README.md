@@ -51,6 +51,6 @@ Foundations - Low-level programming & Algorithm ― Linux and Unix system progra
 * [x] 22. What happens when you type ls -l in the shell
 
 ## Developers
-Carlos Hernando Lemus Martínez, Camilo Araque Caro, [javi](https://github.com/javi0x00)
+Carlos Hernando Lemus Martínez, Camilo Araque Caro, [Javi](https://github.com/javi0b01)
 
 :man_technologist: :books: :computer: :globe_with_meridians:
